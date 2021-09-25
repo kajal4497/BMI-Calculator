@@ -1,0 +1,77 @@
+<!-- https://www.youtube.com/watch?v=OU1INv5o7sE
+ -->
+<!DOCTYPE html>
+<html>
+<head>
+	<title>BMI Calculator</title>
+	<!-- Latest compiled and minified CSS -->
+	<!-- Latest compiled and minified CSS -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+	<!-- <script type="text/javascript" src="bmi.js"></script> -->
+
+	
+</head>
+<body>
+	<div class="container">
+		<div class="card">
+			<div class="card-header text-center">BMI Calculator</div>
+			<div class="card-body">
+				<form class="w-50 m-auto" onsubmit="return false">  <!-- onsubmit: if the value refresh automaticallty  -->
+				 <!-- width:50 and margin:auto -->
+					<div class="form-group"> <!-- A form group tracks the status and changes for each of its controls, so if one of the controls changes, the parent control also emits a new status or value change. The model for the group is maintained from its members. --> 
+						<label>weight: </label>
+						<input type="number" name="" placeholder="Weight in Kg" id="weight" class="form-control"> <!-- type: number is in HTML5
+						form-control: A user can interact with such a form, providing data that can then be sent to the server for further processing
+						 -->
+					</div>
+
+					<div class="form-group">
+						<label>Height: </label>
+						<input type="number" name="" placeholder="Height in Ft" id="height" class="form-control"> 
+					</div>
+
+					<div class="form-group">
+						<label> BMI Value: </label>
+						<input type="number" name="" id="bmivalue" class="form-control"> 
+					</div>
+					<div>
+						<button type="submit" class="btn btn-success" onclick="getbmivalue()"> Check BMI </button>
+					</div>
+				
+				</form>
+			</div>
+			<div class="card-footer text-center"> A healthy BMI ranges between 19 and 25. </div>
+			</div>
+	</div>
+
+	 <script>
+
+ 	function getbmivalue(){
+	 var weight = document.getElementById('weight').value;  //to take the user input
+	 var height = document.getElementById('height').value;
+
+	 /* converting feet into meter for height*/
+
+	 height = height * 12; // height in inches
+	 height = height * 0.025; //height in meter
+	 var newbmivalue = weight/Math.pow(height,2);
+	 newbmivalue = Math.round(newbmivalue);  //store new bmi value that is calculated from the formula
+	 document.getElementById("bmivalue").value = newbmivalue;
+	}
+
+
+
+
+ </script>
+
+	<!-- jQuery library -->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+	<!-- Popper JS -->
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+
+	<!-- Latest compiled JavaScript -->
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+</body>
+</html>
